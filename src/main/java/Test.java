@@ -18,5 +18,9 @@ public class Test {
 //        System.out.println(strings);
 //        System.out.println("123".substring(0,10));
         System.out.println(5/2);
+//        A subA = new SubA();
+//        subA.call();
+        System.out.println(7 % 10);
+        System.out.println(433 / 10);
     }
 }
