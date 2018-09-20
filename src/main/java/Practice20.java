@@ -1,6 +1,8 @@
 //import java.util.*;
-//import java.util.stream.Collectors;
 //
+///**
+// * @author Administrator
+// */
 //public class Practice20 {
 //    public static void main(String[] args) {
 //        Practice20 practice20 = new Practice20();
