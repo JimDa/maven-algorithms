@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class Practice21 {
     public static void main(String[] args) {
@@ -17,52 +20,47 @@ public class Practice21 {
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        Integer count = 1;
-        if (l1 == null && l2 == null) {
-            return null;
-        }
-        ListNode derivedListNode;
-        if (l1 == null) {
-            derivedListNode = new ListNode(l2.val);
-        } else {
-            derivedListNode = new ListNode(l1.val);
-        }
-        start(derivedListNode, l1, l2, count);
-        return derivedListNode;
+//        Integer count = 1;
+//        if (l1 == null && l2 == null) {
+//            return null;
+//        }
+//        ListNode derivedListNode;
+//        if (l1 == null) {
+//            derivedListNode = new ListNode(l2.val);
+//        } else {
+//            derivedListNode = new ListNode(l1.val);
+//        }
+//        start(derivedListNode, l1, l2, count);
+        ArrayList<ListNode> listNodes = new ArrayList<ListNode>() {
+            {
+                add(l1);
+                add(l2);
+            }
+        };
+        ListNode derivedListNode = new ListNode(0);
+//        if (l1 == null) {
+//            derivedListNode = new ListNode(l2.val);
+//            listNodes.remove(l1);
+//        } else {
+//            derivedListNode = new ListNode(l1.val);
+//            listNodes.remove(l2);
+//        }
+
+        return start(derivedListNode, listNodes);
 
     }
 
-    private void start(ListNode derivedListNode, ListNode l1, ListNode l2, Integer count) {
-        if (count % 2 == 0) {
-            if (l1 != null) {
-                count++;
-                derivedListNode.next = new ListNode(l1.val);
-                start(derivedListNode.next, l1.next, l2, count);
-            } else if (l2 != null) {
-                count++;
-                derivedListNode.next = new ListNode(l2.val);
-                start(derivedListNode.next, null, l2.next, count);
+    private ListNode start(ListNode derivedListNode, ArrayList<ListNode> listNodes) {
+        for (ListNode listNode : listNodes) {
+            if (listNode == null) {
+                continue;
             }
-        } else {
-            if (l2 != null) {
-                count++;
-                if (count == 2) {
-                    if (l1 == null) {
-                        if (l2.next == null) {
-                            return;
-                        }
-                        derivedListNode.next = new ListNode(l2.next.val);
-                        start(derivedListNode.next, null, l2.next, count);
-                    }
-                } else {
-                    derivedListNode.next = new ListNode(l2.val);
-                    start(derivedListNode.next, l1, l2.next, count);
-                }
-            } else if (l1 != null) {
-                count++;
-                derivedListNode.next = new ListNode(l1.val);
-                start(derivedListNode.next, l1.next, null, count);
-            }
+            derivedListNode.next = new ListNode(listNode.val);
+            Collections.replaceAll(listNodes, listNode, listNode.next);
+            return start(derivedListNode, listNodes);
+        }
+        if (listNodes.stream().filter(v -> v != null).collect(Collectors.toList()).size() != 0) {
+            start(derivedListNode, listNodes);
         }
     }
 }
