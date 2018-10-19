@@ -22,12 +22,22 @@ public class Test {
 //        subA.call();
 //        System.out.println(7 % 10);
 //        System.out.println(433 / 10);
-        String a = null;
-        String s = "aaa" + a;
-        StringBuilder ss = new StringBuilder("aaa").append(a);
-        System.out.println(s);
-        System.out.println(ss);
-        System.out.println("heheheeheh");
-        System.out.println(null != "");
+//        String a = null;
+//        String s = "aaa" + a;
+//        StringBuilder ss = new StringBuilder("aaa").append(a);
+//        System.out.println(s);
+//        System.out.println(ss);
+//        System.out.println("heheheeheh");
+//        System.out.println(null != "");
+//        char[] chars = "Hello World".toCharArray();
+//        for (Character c : chars) {
+//            System.out.println(c);
+//        }
+        String[] split = "Hello World ".split(" ");
+        int num = 1;
+        for (String s : split) {
+            System.out.println(num + ":" +s);
+            num++;
+        }
     }
 }
