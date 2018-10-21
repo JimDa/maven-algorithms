@@ -33,6 +33,7 @@ public class Test {
 //        for (Character c : chars) {
 //            System.out.println(c);
 //        }
+
         String[] split = "Hello World ".split(" ");
         int num = 1;
         for (String s : split) {
