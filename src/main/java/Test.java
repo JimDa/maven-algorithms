@@ -34,11 +34,13 @@ public class Test {
 //            System.out.println(c);
 //        }
 
-        String[] split = "Hello World ".split(" ");
-        int num = 1;
-        for (String s : split) {
-            System.out.println(num + ":" +s);
-            num++;
-        }
+//        String[] split = "Hello World ".split(" ");
+//        int num = 1;
+//        for (String s : split) {
+//            System.out.println(num + ":" +s);
+//            num++;
+//        }
+        System.out.println("2.33".split("\\.").length);
+        System.out.println(null == null);
     }
 }
