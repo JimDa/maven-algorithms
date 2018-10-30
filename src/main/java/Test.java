@@ -40,7 +40,12 @@ public class Test {
 //            System.out.println(num + ":" +s);
 //            num++;
 //        }
-        System.out.println("2.33".split("\\.").length);
-        System.out.println(null == null);
+//        System.out.println("2.33".split("\\.").length);
+//        System.out.println(null == null);
+//        String[] split = " sss".split(" ");
+//        System.out.println(split.length);
+//        System.out.println("dffsdf0csacs".toUpperCase());
+        String[] strs = {"sss","ddd","ss"};
+        System.out.println(strs.toString());
     }
 }
