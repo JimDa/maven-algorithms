@@ -45,7 +45,9 @@ public class Test {
 //        String[] split = " sss".split(" ");
 //        System.out.println(split.length);
 //        System.out.println("dffsdf0csacs".toUpperCase());
-        String[] strs = {"sss","ddd","ss"};
-        System.out.println(strs.toString());
+//        String[] strs = {"sss","ddd","ss"};
+//        System.out.println(strs.toString());
+        System.out.println(22 % 26);
+        System.out.println("~");
     }
 }
