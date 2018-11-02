@@ -1,25 +1,33 @@
-
+import java.util.HashSet;
 
 public class Practice202 {
     public static void main(String[] args) {
         Practice202 instance = new Practice202();
-        System.out.println(instance.isHappy(4234));
-//        Demo demo = new Demo();
+        System.out.println(instance.isHappy(19));
     }
 
     public boolean isHappy(int n) {
-        int sum = 0;
+        HashSet<Integer> set = new HashSet<>();
+        return start(n, set);
+    }
 
-        while (n > 1) {
+    private boolean start(int n, HashSet<Integer> set) {
+        int sum = 0;
+        while (n >= 10) {
             sum = sum + (n % 10) * (n % 10);
             n = n / 10;
 
         }
+        sum += n * n;
         if (sum == 1) {
             return true;
         } else {
-            System.out.println(sum);
-            return isHappy(sum);
+            if (set.contains(sum)) {
+                return false;
+            }else {
+                set.add(sum);
+                return start(sum,set);
+            }
         }
     }
 }
