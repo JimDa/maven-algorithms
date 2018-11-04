@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -47,7 +48,9 @@ public class Test {
 //        System.out.println("dffsdf0csacs".toUpperCase());
 //        String[] strs = {"sss","ddd","ss"};
 //        System.out.println(strs.toString());
-        System.out.println(22 % 26);
-        System.out.println("~");
+//        System.out.println(22 % 26);
+//        System.out.println("~");
+        final String[] es = "loveleetcode".split("e");
+        Arrays.stream(es).forEach(v-> System.out.println(v));
     }
 }
