@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -50,7 +47,13 @@ public class Test {
 //        System.out.println(strs.toString());
 //        System.out.println(22 % 26);
 //        System.out.println("~");
-        final String[] es = "loveleetcode".split("e");
-        Arrays.stream(es).forEach(v-> System.out.println(v));
+//        final String[] es = "loveleetcode".split("e");
+//        Arrays.stream(es).forEach(v-> System.out.println(v));
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        integers.remove(0);
+        System.out.println(integers);
     }
 }
