@@ -49,11 +49,75 @@ public class Test {
 //        System.out.println("~");
 //        final String[] es = "loveleetcode".split("e");
 //        Arrays.stream(es).forEach(v-> System.out.println(v));
-        List<Integer> integers = new ArrayList<>();
-        integers.add(1);
-        integers.add(2);
-        integers.add(3);
-        integers.remove(0);
-        System.out.println(integers);
+//        List<Integer> integers = new ArrayList<>();
+//        integers.add(1);
+//        integers.add(2);
+//        integers.add(3);
+//        integers.remove(0);
+//        System.out.println(integers);
+
+
+        Calendar todayEnd = Calendar.getInstance();
+        todayEnd.set(Calendar.HOUR_OF_DAY, 23);
+        todayEnd.set(Calendar.MINUTE, 59);
+        todayEnd.set(Calendar.SECOND, 59);
+        todayEnd.set(Calendar.MILLISECOND, 999);
+        System.out.println(todayEnd.getTime());
+
+//        ListNode l1 = new ListNode(1);
+//        ListNode l2 = new ListNode(2);
+//        ListNode l3 = new ListNode(3);
+//        ListNode l4 = new ListNode(4);
+//        ListNode ll3 = new ListNode(3);
+//        ListNode ll2 = new ListNode(2);
+//        ListNode ll1 = new ListNode(1);
+//        l1.next = l2;
+//        l2.next = l3;
+//        l3.next = l4;
+//        l4.next = ll3;
+//        ll3.next = ll2;
+//        ll2.next = ll1;
+//        Test test = new Test();
+//        boolean b = test.isPalindrome(l1);
+//        System.out.println(b);
+//    }
+//
+//    public boolean isPalindrome(ListNode head) {
+//        if (head == null || head.next == null) {
+//            return true;
+//        }
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast.next != null && fast.next.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//        }
+//        ListNode reverseNode = reverseList(slow);
+//        while (head != null && reverseNode != null) {
+//            if (head.val != reverseNode.val) {
+//                return false;
+//            }
+//            head = head.next;
+//            reverseNode = reverseNode.next;
+//        }
+//        return true;
+//    }
+//
+//    public ListNode reverseList(ListNode head) {
+//        if (head == null) {
+//            return head;
+//        }
+//        ListNode pre = head;
+//        ListNode cur = head.next;
+//        ListNode temp;
+//        while (cur != null) {
+//            temp = cur.next;
+//            cur.next = pre;
+//            pre = cur;
+//            cur = temp;
+//        }
+//        head.next = null;
+//        return pre;
+//    }
     }
 }
