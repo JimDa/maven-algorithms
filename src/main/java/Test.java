@@ -119,5 +119,7 @@ public class Test {
 //        head.next = null;
 //        return pre;
 //    }
+        int[] nms = {1,2,3,4,5};
+        System.out.println(nms.toString());
     }
 }
