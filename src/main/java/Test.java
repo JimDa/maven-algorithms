@@ -1,3 +1,5 @@
+import org.springframework.security.rsa.crypto.RsaAlgorithm;
+
 import java.util.*;
 
 public class Test {
@@ -57,12 +59,12 @@ public class Test {
 //        System.out.println(integers);
 
 
-        Calendar todayEnd = Calendar.getInstance();
-        todayEnd.set(Calendar.HOUR_OF_DAY, 23);
-        todayEnd.set(Calendar.MINUTE, 59);
-        todayEnd.set(Calendar.SECOND, 59);
-        todayEnd.set(Calendar.MILLISECOND, 999);
-        System.out.println(todayEnd.getTime());
+//        Calendar todayEnd = Calendar.getInstance();
+//        todayEnd.set(Calendar.HOUR_OF_DAY, 23);
+//        todayEnd.set(Calendar.MINUTE, 59);
+//        todayEnd.set(Calendar.SECOND, 59);
+//        todayEnd.set(Calendar.MILLISECOND, 999);
+//        System.out.println(todayEnd.getTime());
 
 //        ListNode l1 = new ListNode(1);
 //        ListNode l2 = new ListNode(2);
@@ -119,7 +121,10 @@ public class Test {
 //        head.next = null;
 //        return pre;
 //    }
-        int[] nms = {1,2,3,4,5};
-        System.out.println(nms.toString());
+//        int[] nms = {1,2,3,4,5};
+//        System.out.println(nms.toString());
+        System.out.println("1".equals(1));
+        System.out.println(new Integer(1).equals("1"));
+
     }
 }
