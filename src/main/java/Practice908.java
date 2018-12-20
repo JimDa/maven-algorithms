@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -12,16 +13,14 @@ public class Practice908 {
     }
 
     public int smallestRangeI(int[] A, int K) {
-        ArrayList<Integer> list = new ArrayList<>();
-        Random random = new Random();
-        for (int i = -1 * K; i <= K; i++) {
-            for (int j = 0; j < A.length; j++) {
-                list.add(A[j] + i);
-            }
+        if (A == null || A.length == 0 || A.length == 1) {
+            return 0;
         }
-
-        Integer max = Collections.max(list);
-        Integer min = Collections.min(list);
-        return max - min;
+        Arrays.sort(A);
+        if (K <= 0) {
+            return (A[A.length - 1] + K) - (A[0] - K);
+        } else {
+            return (A[A.length - 1] - K) - (A[0] + K);
+        }
     }
 }
