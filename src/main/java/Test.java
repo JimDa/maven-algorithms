@@ -1,9 +1,19 @@
-import org.springframework.security.rsa.crypto.RsaAlgorithm;
-
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, UnsupportedEncodingException, BadPaddingException, IllegalBlockSizeException {
 //        CompositionClass compositionClass = new CompositionClass();
 //        A subA = new SubA();
 //        subA.call();
@@ -123,8 +133,213 @@ public class Test {
 //    }
 //        int[] nms = {1,2,3,4,5};
 //        System.out.println(nms.toString());
-        System.out.println("1".equals(1));
-        System.out.println(new Integer(1).equals("1"));
+//        System.out.println("1".equals(1));
+//        System.out.println(new Integer(1).equals("1"));
+//        System.out.println(Calendar.getInstance().get(Calendar.MONTH));
+//        int i = new Random().nextInt(3);
+//        System.out.println(i);
+//        System.out.println((Object)"3" + "0");
+//
+//
+//        List<String> strings = Arrays.asList("sss", "sss1", "ddd");
+//        ArrayList<String> strings1 = new ArrayList<>(strings);
+//        //1.
+//        for (String str :strings) {
+//            if (str.contains("d")) {
+//                strings.remove(str);
+//            }
+//        }
+
+        //2.
+//        for (String str : strings1) {
+//            if (str.contains("d")) {
+//                strings1.remove(str);
+//            }
+//        }
+
+        //3.
+//        System.out.println("ddd".contains("d"));
+//        for (int j = 0; j < strings1.size(); j++) {
+//            if (strings1.get(j).contains("d")) {
+//                strings1.remove(j);
+//            }
+//        }
+//        System.out.println(strings1.toString());
+
+        HashMap<String, String> map = new HashMap() {{
+            put("1", "aa");
+            put("2", "bb");
+            put("3", "ac");
+            put("4", "bc");
+        }};
+        ConcurrentHashMap concurrentMap = new ConcurrentHashMap(map);
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        ArrayList<Map.Entry<String, String>> list = new ArrayList<>(entries);
+        //1.
+//        for (int j = 0; j < list.size(); j++) {
+//            if (!list.get(j).getValue().contains("a")) {
+//                map.remove(list.get(j).getKey());
+//            }
+//        }
+
+        //2.
+        for (Map.Entry<String, String> entry : list) {
+            if (!entry.getValue().contains("a")) {
+                map.remove(entry.getKey());
+            }
+        }
+
+        //3.
+//        for (Map.Entry<String, String> entry : list) {
+//            if (!entry.getValue().contains("a")) {
+//                concurrentMap.remove(entry.getKey());
+//            }
+//        }
+//        System.out.println(map.size());
+//        System.out.println(concurrentMap.size());
+//        Integer x = new Integer(1);
+//        final Integer a = x;
+//        x--;
+//        System.out.println(Byte.valueOf("0"));
+//        System.out.println((byte)1);
+//        byte b = new Integer(1).byteValue();
+//        System.out.println(b);
+//        System.out.println(String.format("https://parent-test.zhangmen.com/#/growthReport?param=%s","123"));
+//        System.out.println(System.currentTimeMillis());
+//        System.out.println(new Date());
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        int dayOfMonth = localDateTime.getDayOfMonth();
+//        System.out.println(dayOfMonth);
+//        System.out.println(localDateTime.getYear());
+//        System.out.println(localDateTime.getMonthValue());
+//        int dayOfYear = localDateTime.getDayOfYear();
+//        System.out.println(dayOfYear);
+//        LocalDateTime localDateTime1 = localDateTime.withYear(2018).withMonth(11);
+//        LocalDateTime of = LocalDateTime.of(2018, 11, 1, 0, 0);
+//        String yyyyMMdd = of.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+//        System.out.println(yyyyMMdd);
+//        Float f = 0.6f;
+//        System.out.println(String.valueOf(f * 100).concat("%"));
+//        String s = String.valueOf(f);
+//        String[] split = s.split("\\.");
+//        System.out.println(split[1]);
+//        System.out.println("0".endsWith("0"));
+//        System.out.println(String.valueOf(f*100));
+
+//        float p1 = 0.60000004f;
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        System.out.println(df.format(p1 * 100));
+//
+//        System.out.println(Byte.valueOf("0").equals(null));
+//        System.out.println(Byte.valueOf("0").byteValue() == 0);
+//        System.out.println(new Byte("0").equals((byte)0));
+//        System.out.println(LocalDateTime.now().getMonthValue());
+//        System.out.println(LocalDateTime.now().minusMonths(1).getMonthValue());
+//        LocalDateTime localDateTime = LocalDateTime.now().minusMonths(1);
+//        int year = localDateTime.getYear();
+//        int month = localDateTime.getMonthValue();
+//        System.out.println(year);
+//        System.out.println(month);
+//
+//        Object o = new Object();
+//        Object o2 = new Object();
+//        Object o3 = new Object();
+//        Object o4 = new Object();
+
+//        String mobile = "15295752976";
+//        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+//        byte[] key = "phone-decrypt-recommend-2018A".getBytes("UTF-8");
+//        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+//        MessageDigest sha = MessageDigest.getInstance("SHA-1");
+//        key = sha.digest(key);
+//        key = Arrays.copyOf(key, 16); // use only first 128 bit
+//        try {
+//            cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, "AES"));
+//            byte[] bytes = cipher.doFinal(mobile.getBytes("UTF-8"));
+//            String s = DatatypeConverter.printHexBinary(bytes);
+//            System.out.println(s);
+//        } catch (InvalidKeyException e) {
+//            e.printStackTrace();
+//        }
+
+//        ArrayList<Integer> integers = new ArrayList<>();
+//        List<Integer> collect = integers.stream().filter(v -> {return v.intValue()>0;}).collect(Collectors.toList());
+//        System.out.println(collect.size());
+//        System.out.println(collect.hashCode());
+
+//        try {
+//            String cipherText = AES4NodeJsUtils.encrypt("15295752976", "phone-decrypt-recommend-2018A");
+//            System.out.println(cipherText);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            String decrypt = Demo.decrypt("phone-decrypt-recommend-2018A", "21b4ff05610fa733cebd3369a04ea07b");
+//            System.out.println(decrypt);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        byte[] thedigest = md.digest("phone-decrypt-recommend-2018A".getBytes("UTF-8"));
+        KeyGenerator keygen = KeyGenerator.getInstance("AES");
+//        SecureRandom secureRandom = new SecureRandom(thedigest);
+        keygen.init(192);
+//        SecretKey secretKey = keygen.generateKey();
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        byte[] input = "15295752976".getBytes("UTF-8");
+        try {
+//            byte[] encoded = secretKey.getEncoded();
+            SecretKeySpec skeySpec = new SecretKeySpec(thedigest, "AES");
+            cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
+//            byte[] cipherText = new byte[cipher.getOutputSize(input.length)];
+//
+//            int ctLength = cipher.update(input, 0, input.length, cipherText, 0);
+//
+//            ctLength += cipher.doFinal(cipherText, ctLength);
+            byte[] bytes = cipher.doFinal(input);
+
+            String s = parseByte2HexStr(bytes);
+            String s1 = new String(bytes);
+            String s2 = DatatypeConverter.printHexBinary(bytes);
+            String s3 = Base64.getEncoder().encodeToString(bytes);
+            System.out.println("工具类转换的十六进制为-----------------" + s);
+            System.out.println("DatatypeConverter转换的十六进制为-----" + s2);
+            System.out.println("二进制为-----------------------------" + s1);
+            System.out.println("Base64为-----------------------------" + s3);
+//            cipher.init(Cipher.DECRYPT_MODE,secretKey);
+//            byte[] bytes = s.getBytes("UTF-8");
+//            byte[] cipherText1 = new byte[cipher.getOutputSize(bytes.length)];
+//            int length = cipher.update(bytes, 0, bytes.length, cipherText1, 0);
+//            ctLength += cipher.doFinal(cipherText1, length);
+//            String s4 = parseByte2HexStr(cipherText1);
+//            System.out.println(s4);
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("sdfcom".contains("."));
+
+        long yes = 1234567890123L;
+        boolean acrossDay = Duration.between(LocalDateTime.ofInstant(new Date(yes).toInstant(), ZoneId.systemDefault()), LocalDateTime.now()).toDays() > 0;
+
+        System.out.println("2.5.5".contains("2.5.5"));
+
 
     }
+
+    private static String parseByte2HexStr(byte buf[]) {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < buf.length; i++) {
+            String hex = Integer.toHexString(buf[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
+            }
+            sb.append(hex);
+        }
+        return sb.toString();
+    }
+
+
+
 }
